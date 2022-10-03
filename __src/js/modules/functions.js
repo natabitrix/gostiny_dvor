@@ -7,7 +7,7 @@ export function isWebP() {
         };
         webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
     }
-    
+
     testWebP(function (support) {
         let className = support === true ? 'webp' : 'no-webp';
         document.documentElement.classList.add(className);
@@ -15,8 +15,14 @@ export function isWebP() {
 }
 
 
-export function ajax () {
-    
+export function isMobile() {
+    let className = navigator.userAgentData.mobile === true ? 'mobile' : 'desktop';
+    document.documentElement.classList.add(className);
+}
+
+
+export function ajax() {
+
     var ajax = {};
     ajax.x = function () {
         if (typeof XMLHttpRequest !== 'undefined') {
@@ -85,10 +91,10 @@ export function getCookie(a) {
 }
 
 /**window.setCookie("cookie_name", "Y", {
-		expires: 31557600,
-		path: "/",
-		domain: window.location.hostname
-	}); */
+        expires: 31557600,
+        path: "/",
+        domain: window.location.hostname
+    }); */
 export function setCookie(b, f, c) {
     c = c || {};
     var i = c.expires;
@@ -213,97 +219,143 @@ export function popoversInit() {
         Array.prototype.forEach.call(document.querySelectorAll('[data-popover]'), (popover_btn) => {
             const popover = document.getElementById(popover_btn.getAttribute('data-popover'));
             const popover_btn_close = popover.querySelector(".popover-close");
-    
+
             document.querySelector(".popover-placeholder").innerHTML = "";
             document.querySelector(".popover-placeholder").append(popover);
-    
+
             popoverHide(popover);
-    
+
             popover_btn.addEventListener('mouseenter', e => {
                 popoverShow(popover);
                 popoverPos(popover, popover_btn);
             });
-    
+
             popover.addEventListener('mouseenter', e => {
                 popoverShow(popover);
             });
-    
+
             popover_btn_close.addEventListener("click", function () {
                 popoverHide(popover);
             });
-    
+
             window.addEventListener('resize', function (event) {
                 popoverPos(popover, popover_btn);
-    
+
             });
-    
+
         });
-    
+
         function popoverShow(popover) {
             popover.classList.add("active");
             popover.setAttribute('data-hidden', '');
         }
-    
+
         function popoverHide(popover) {
             popover.classList.remove("active");
             popover.setAttribute('data-hidden', 'true');
             popover.setAttribute("style", '');
         }
-    
+
         function popoverPos(popover, popover_btn) {
-    
+
             var popoverBtnRect = popover_btn.getBoundingClientRect();
             var bodyRect = document.querySelector("body").getBoundingClientRect();
-    
+
             var margin = 20;
-    
+
             var top = popoverBtnRect.top - bodyRect.top + "px";
             var left = popoverBtnRect.left - bodyRect.left - 10 + "px";
             var right = "auto";
             var bottom = "auto";
-    
+
             var position = "top:" + top + ";left:" + left + ";right:" + right + ";bottom:" + bottom + ";"
             popover.setAttribute("style", position);
             //console.log(position);
-    
+
             var popoverRect = popover.getBoundingClientRect();
-    
-    
+
+
             //правая граница зашла за левую границу экрана (блок полностью за левой границей)
             if ((popoverRect.x + popoverRect.width) < 0) {
                 left = margin + "px";
                 right = "auto";
             }
-    
+
             //нижняя граница зашла за верхнюю границу экрана  (блок полностью за верхней границей)
             // if (popoverRect.y < 0 || (popoverRect.y + popoverRect.height) < 0) {
             //     top = margin + "px";
             //     bottom = "auto";
             // }
-    
+
             //левая граница зашла за правую границу экрана (блок полностью за правой границей) 
             //или правая граница зашла правую границу экрана 
             if (popoverRect.x > window.innerWidth || (popoverRect.x + popoverRect.width) > (window.innerWidth) - 17) {
                 right = margin + "px";
                 left = "auto";
             }
-    
+
             //верхняя граница зашла за нижнюю страницу экрана (блок полностью за нижней границей)  
             //или нижняя граница зашла за нижнюю страницу экрана
             // if (popoverRect.y > window.innerHeight || (popoverRect.y + popoverRect.height) > window.innerHeight) {
             //     bottom = margin + "px";
             //     top = "auto";
             // }
-    
+
             var position = "top:" + top + ";left:" + left + ";right:" + right + ";bottom:" + bottom + ";"
             popover.setAttribute("style", position);
         }
-    
+
     }
 
-    
+
 
 }
+
+/**Модальное всплывающее окно по клику на кнопку, закрытие по клику по кнопке закрытия */
+export function modals() {
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-modal]'), (modal_btn) => {
+        const modal = document.getElementById(modal_btn.getAttribute('data-modal'));
+        const modal_btn_close = modal.querySelector(".modal-close");
+        const modal_overlay = modal.querySelector(".modal-overlay");
+
+        modalHide(modal);
+        //tabs();
+
+        modal_btn.addEventListener("click", function () {
+            modalShow(modal);
+        });
+
+        modal_btn_close.addEventListener("click", function () {
+            modalHide(modal);
+        });
+
+        modal_overlay.addEventListener("click", function () {
+            modalHide(modal);
+        });
+
+        window.addEventListener('resize', function (event) {
+            //modalPos(modal, modal_btn);
+
+        });
+
+    });
+
+    function modalShow(modal) {
+        modal.classList.add("active");
+        modal.setAttribute('data-hidden', '');
+        document.querySelector('body').classList.add("lock");
+    }
+
+    function modalHide(modal) {
+        modal.classList.remove("active");
+        modal.setAttribute('data-hidden', 'true');
+        document.querySelector('body').classList.remove("lock");
+    }
+
+}
+
+
 
 /**Tabs */
 export function tabs() {
@@ -318,8 +370,8 @@ export function tabs() {
         const tabContentId = thisId + "-content";
         let thisTabContentItem = document.getElementById(tabContentId);
 
-        
-        if(cookieTab && cookieTab == thisId) {
+
+        if (cookieTab && cookieTab == thisId) {
             //Скрытие всех tab-content
             Array.prototype.forEach.call(tabContent, function (tabContentItem) {
                 tabContentItem.classList.add("d-none");
@@ -331,7 +383,7 @@ export function tabs() {
             Array.prototype.forEach.call(tabList, function (tabListItem) {
                 tabListItem.classList.remove("active");
             });
-            
+
             //Добавить активность активной tab
             tabListItem.classList.add("active");
         }
@@ -343,7 +395,7 @@ export function tabs() {
                 expires: 31557600,
                 path: "/",
                 domain: window.location.hostname
-            }); 
+            });
 
             //Скрытие всех tab-content
             Array.prototype.forEach.call(tabContent, function (tabContentItem) {
@@ -372,3 +424,23 @@ export function tabs() {
 }
 
 
+
+
+
+
+// export function findBgMiddle(event) {
+//     const element = document.querySelector('.bg');
+//     const viewportHeight = document.documentElement.clientHeight;
+//     const viewporCenter = viewportHeight/2;
+
+//     var elementTop = element.getBoundingClientRect().top;
+//     var elementHeight = element.getBoundingClientRect().height;
+//     var elementCenter = elementTop + elementHeight / 2;
+
+//     var fixed = false;
+
+//     if(elementCenter < viewporCenter) {
+//         element.classList.add('fixed');
+//         fixed = true;
+//     }
+// }

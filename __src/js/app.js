@@ -1,5 +1,6 @@
 import * as flsFunctions from "./modules/functions.js";
-//flsFunctions.isWebP();
+flsFunctions.isWebP();
+flsFunctions.isMobile();
 
 
 import VanillaScrollspy from 'vanillajs-scrollspy';
@@ -30,44 +31,17 @@ const slider = new Swiper('.slider', {
 
 
 
+
+
+
 const viewportWidth = document.documentElement.clientWidth;//вычисляем ширину вьюпорта
 
-function findBgMiddle(event) {
-    const element = document.querySelector('.bg');
-    const viewportHeight = document.documentElement.clientHeight;
-    const viewporCenter = viewportHeight/2;
 
-    var elementTop = element.getBoundingClientRect().top;
-    var elementHeight = element.getBoundingClientRect().height;
-    var elementCenter = elementTop + elementHeight / 2;
-
-    var fixed = false;
-
-    // if(elementCenter < viewporCenter && elementHeight < viewportHeight) {
-    //     element.classList.add('fixed');
-    //     fixed = true;
-    // }
-    // else {
-    //     element.classList.remove('fixed');
-    // }
-
-    if(elementCenter < viewporCenter) {
-        element.classList.add('fixed');
-        fixed = true;
-    }
-    else {
-        //element.classList.remove('fixed');
-    }
-
-    console.log(viewporCenter);
-    console.log(elementCenter);
-    console.log(event);
-}
 
 
 
 addEventListener('DOMContentLoaded', () => {
-//document.addEventListener("DOMContentLoaded", function () {
+
     //tabs();
     //swiperFullScreen();
     //collapseContent();
@@ -75,15 +49,17 @@ addEventListener('DOMContentLoaded', () => {
     //opoversInit();
     //popovers();
 
+    flsFunctions.modals();
+    
+
 
     addEventListener('resize', (event) => {
-        //collapseContent();
-        //findBgMiddle();
+
     });
 
 
     addEventListener('scroll', (event) => {
-        //findBgMiddle(event);
+
     });
 
 

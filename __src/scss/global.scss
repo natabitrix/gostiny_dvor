@@ -3,6 +3,7 @@ html {
 	min-height: 100%;
 }
 
+$scrollBarWidth: 17px;
 
 body {
 	margin: 0;
@@ -15,8 +16,37 @@ body {
 	&.lock {
 		height: 100%;
 		overflow: hidden;
+		padding-right: $scrollBarWidth;
+	}
+	.mobile &.lock {
+		padding-right:0;
 	}
 
+}
+
+::-webkit-scrollbar {
+	width: $scrollBarWidth;
+	height: $scrollBarWidth;
+}
+
+::-webkit-scrollbar-track {
+	background: $gray3;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $gray;
+	border-radius: 0
+}
+
+::-webkit-scrollbar-button {
+	height: $scrollBarWidth;
+	width: $scrollBarWidth;
+	background-color: $gray;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-button:hover {
+	background: $gray2;
 }
 
 
@@ -177,6 +207,7 @@ $x_padding_mobile: 16px;
 			line-height: 16px;
 			font-family: $Rodeo;
 			text-transform: uppercase;
+			white-space: nowrap;
 			@include media-breakpoint-up(xl) {
 				margin: 0 41px;
 			}
@@ -463,7 +494,14 @@ section {
 	//background-attachment: fixed;
 	background-size: 87%;
 	//@debug:50% 60%;
-	transition: all .3s ease;
+	//transition: all .3s ease;
+
+	// .lock & {
+	// 	margin-left: -17px;
+	// }
+	// .mobile .lock  & {
+	// 	left: 0px;
+	// }
 
 	//opacity: 0;
 	&.fixed {
@@ -615,7 +653,14 @@ section {
 		@include media-breakpoint-up(xl) {
 			margin-top: -150px;
 		}
+		svg {
+			max-width: 100%;
+			height: auto;
+		}
 
+		.korpus {
+			cursor: pointer;
+		}
 
 		&-symbols {
 			margin-top: 30px;
