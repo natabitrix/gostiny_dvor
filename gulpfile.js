@@ -1,3 +1,18 @@
+//1. npm init
+//2. npm install
+//3. npm i -D webp-converter@2.2.3
+//4. gulp
+
+/**
+ * path-autocomplete F1 > open user settings json (C:\Users\Nata\AppData\Roaming\Code\User\settings.json)
+ *     "path-autocomplete.pathMappings": {
+        "@img": "${folder}/__src/img", //alias for images
+        "@scss": "${folder}/__src/scss", //alias for scss
+        "@js": "${folder}/__src/js", //alias for js
+        "@html": "${folder}/__src/html" //alias for js
+    },
+ */
+
 // Основной модуль
 import gulp from "gulp";
 // Импорт путей

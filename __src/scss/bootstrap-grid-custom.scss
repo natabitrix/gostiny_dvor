@@ -69,18 +69,18 @@
 				flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
 			}
 
-			/*
-			.row-cols#{$infix}-auto > * {
-				@include make-col-auto();
-			}
-			*/
+
+			// .row-cols#{$infix}-auto > * {
+			// 	@include make-col-auto();
+			// }
+
 
 
 			@if $grid-row-columns > 0 {
 				@for $i from 1 through $grid-row-columns {
-					/*.row-cols#{$infix}-#{$i} {
-						@include row-cols($i);
-					}*/
+					// .row-cols#{$infix}-#{$i} {
+					// 	@include row-cols($i);
+					// }
 				}
 			}
 

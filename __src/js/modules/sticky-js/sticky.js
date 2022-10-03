@@ -261,7 +261,7 @@ class Sticky {
       this.css(element.parentNode, {
         display: 'block',
         width: element.sticky.rect.width + 'px',
-        height: element.sticky.rect.height + 24 + 'px',
+        height: element.sticky.rect.height + 'px',
       });
     }
 

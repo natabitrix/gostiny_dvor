@@ -3,9 +3,7 @@
 @at-root {
     :root {
         --swiper-navigation-size: 46px;
-        /*
-  --swiper-navigation-color: var(--swiper-theme-color);
-  */
+        //--swiper-navigation-color: var(--swiper-theme-color);
     }
 }
 
@@ -40,21 +38,21 @@
         display: none !important;
     }
 
-    /*&:after {
-        font-family: swiper-icons;
-        font-size: var(--swiper-navigation-size);
-        text-transform: none !important;
-        letter-spacing: 0;
-        font-variant: initial;
-        line-height: 1;
-    }*/
+    // &:after {
+    //     font-family: swiper-icons;
+    //     font-size: var(--swiper-navigation-size);
+    //     text-transform: none !important;
+    //     letter-spacing: 0;
+    //     font-variant: initial;
+    //     line-height: 1;
+    // }
 }
 
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
-   /* &:after {
-        content: 'prev';
-    }*/
+    //    &:after {
+    //         content: 'prev';
+    //     }
 
     left: 0;
     right: auto;
@@ -62,9 +60,9 @@
 
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
-    /*&:after {
-        content: 'next';
-    }*/
+    // &:after {
+    //     content: 'next';
+    // }
 
     right: 0;
     left: auto;

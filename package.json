@@ -1,7 +1,6 @@
 {
-  "name": "teatr2022",
+  "name": "gostiny_dvor",
   "version": "1.0.0",
-  "description": "",
   "main": "gulpfile.js",
   "type": "module",
   "scripts": {
@@ -46,8 +45,10 @@
     "sass": "^1.54.9",
     "sticky-js": "^1.3.0",
     "swiper": "^8.3.2",
+    "vanillajs-scrollspy": "^3.0.3",
     "webp-converter": "^2.2.3",
     "webpack": "^5.74.0",
     "webpack-stream": "^7.0.0"
-  }
+  },
+  "description": ""
 }
