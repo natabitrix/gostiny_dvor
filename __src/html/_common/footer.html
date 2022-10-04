@@ -1,4 +1,5 @@
-</div><!--.data-sticky-container-->
+</div>
+<!--.data-sticky-container-->
 
 <footer class="footer">
 
@@ -15,78 +16,55 @@
 
 		<div class="footer__text text-center">
 			<p>
-				Любая информация, указанная на сайте, не является офертой, публичной офертой. 
-				Сведения о реализуемых товарах, оказываемых услугах и иные сведения, указанные на сайте, носят исключительно информационный характер
-				
+				Любая информация, указанная на сайте, не является офертой, публичной офертой.
+				Сведения о реализуемых товарах, оказываемых услугах и иные сведения, указанные на сайте, носят
+				исключительно информационный характер
+
 			</p>
 		</div>
 	</div>
-
-
 </footer>
 
 
-<div class="modal" id="korpus1">
-	<div class="modal-overlay"></div>
-	<div class="modal-window korpus">
-		<div class="btn btn-simple modal-close">
-			<img src="@img/icons/close.svg" alt="">
-		</div>
+@@loop('../include/modal-korpus.html', [
+	{
+		"korpus": "1",
+		"korpusName": "I",
+		"etazhi": [
+				{"etazh":"1", "active": "active"},
+				{"etazh":"2", "active": ""},
+				{"etazh":"3", "active": ""},
+			]
+	},
+	{
+		"korpus": "2",
+		"korpusName": "II",
+		"etazhi": [
+				{"etazh":"1", "active": "active"},
+			]
+	},
+	{
+		"korpus": "3",
+		"korpusName": "III",
+		"etazhi": [
+				{"etazh":"1", "active": "active"},
+				{"etazh":"2", "active": ""},
+			]
+	},
+	{
+		"korpus": "4",
+		"korpusName": "IV",
+		"etazhi": []
+	}
+])
 
-		@@include('../include/modal-korpus.html', {
-			"korpus": "I"
-		})
-		
-	</div>
+
+
+
+
+
 </div>
-
-<div class="modal" id="korpus2">
-	<div class="modal-overlay"></div>
-	<div class="modal-window korpus">
-		<div class="btn btn-simple modal-close">
-			<img src="@img/icons/close.svg" alt="">
-		</div>
-
-		@@include('../include/modal-korpus.html', {
-			"korpus": "II"
-		})
-		
-	</div>
-</div>
-
-<div class="modal" id="korpus3">
-	<div class="modal-overlay"></div>
-	<div class="modal-window korpus">
-		<div class="btn btn-simple modal-close">
-			<img src="@img/icons/close.svg" alt="">
-		</div>
-
-		@@include('../include/modal-korpus.html', {
-			"korpus": "III"
-		})
-		
-	</div>
-</div>
-
-<div class="modal" id="korpus4">
-	<div class="modal-overlay"></div>
-	<div class="modal-window korpus">
-		<div class="btn btn-simple modal-close">
-			<img src="@img/icons/close.svg" alt="">
-		</div>
-
-		@@include('../include/modal-korpus.html', {
-			"korpus": "IV"
-		})
-		
-	</div>
-</div>
-
-
-
-
-
-</div><!--.wrapper-->
+<!--.wrapper-->
 
 
 <script src="js/app.min.js"></script>

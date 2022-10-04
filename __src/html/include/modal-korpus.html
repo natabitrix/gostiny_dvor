@@ -1,56 +1,65 @@
-<div class="modal__title">
-    <div class="h2">Корпус @@korpus</div>
-</div>
+<div class="modal korpus-modal" id="korpus@@korpus">
+    <div class="modal-overlay"></div>
 
-<div class="modal__inner">
-    <div class="korpus__info">
-        <div class="korpus__info-item">
-            <div class="h5">Площадь помещений</div>
-            <p>от 20 кв.м до 3000 кв.м</p>
-        </div>
-        <div class="korpus__info-item">
-            <div class="h5">Для удобства арендаторов и посетителей</div>
-            <ul class="columns-2">
-                <li>2 современных лифта</li>
-                <li>2 санузла на каждом этаже + санузлы для маломобильной группы населения</li>
-                <li>кафе быстрого питания</li>
-                <li>площадка</li>
-            </ul>
+    <div class="modal-window">
+        <div class="modal-content">
+
+            <div class="btn btn-simple modal-close">
+                <img src="@img/icons/close.svg" alt="">
+            </div>
+
+
+            <div class="modal__title">
+                <div class="h2">Корпус @@korpusName</div>
+            </div>
+
+            <div class="modal__inner">
+                <div class="korpus-modal__info row">
+                    <div class="korpus-modal__info-item col-lg-3">
+                        <div class="h5">Площадь помещений</div>
+                        <p>от 20 кв.м до 3000 кв.м</p>
+                    </div>
+                    <div class="korpus-modal__info-item col-lg-8">
+                        <div class="h5">Для удобства арендаторов и посетителей</div>
+                        <ul class="columns-2">
+                            <li>2 современных лифта</li>
+                            <li>2 санузла на каждом этаже + санузлы для маломобильной группы населения</li>
+                            <li>кафе быстрого питания</li>
+                            <li>банкоматы</li>
+                            <li>детская игровая площадка</li>
+                        </ul>
+                    </div>
+                </div>
+
+                @@if (etazhi.length > 0) {
+                <div class="korpus-modal__tabs tabs">
+
+                    <div class="tab-list">
+                        @@for (var i = 0; i < etazhi.length; i++) {
+                            <div class="tab-list-item `+etazhi[i].active+`" id="tab-korpus-@@korpus-etazh-`+etazhi[i].etazh+`">
+                                `+etazhi[i].etazh+` этаж
+                            </div>
+                        }
+                    </div>
+
+                    <div class="tab-content">
+
+                        @@for (var i = 0; i < etazhi.length; i++) {
+                            @@include('modal-korpus-etazh.html', {
+                                "active": "`+etazhi[i].active+`",
+                                "etazh": "`+etazhi[i].etazh+`",
+                                "korpus": "@@korpus"
+                            })
+                        }
+                    </div>
+
+                </div>
+                }
+
+            </div>
+
+
         </div>
     </div>
 
-    <div class="korpus__tabs tabs">
-
-        <div class="tab-list">
-                <div class="tab-list-item active" id="tab-@@korpus-etazh-1"><div class="btn">1 этаж</div></div>
-                <div class="tab-list-item" id="tab-@@korpus-etazh-2">2 этаж</div>
-                <div class="tab-list-item" id="tab-@@korpus-etazh-3">3 этаж</div>
-        </div>
-        
-        <div class="tab-content">
-        
-            <div class="tab active" id="tab-korpus-@@korpus-etazh-1-content">
-
-                @@include('modal-korpus-etazh.html', {
-                    "etazh": "1",
-                    "korpus": "@@korpus"
-
-                })
-            </div>
-            <div class="tab" id="tab-korpus-@@korpus-etazh-2-content">
-                @@include('modal-korpus-etazh.html', {
-                    "etazh": "2",
-                    "korpus": "@@korpus"
-                })
-            </div>
-            <div class="tab" id="tab-korpus-@@korpus-etazh-3-content">
-                @@include('modal-korpus-etazh.html', {
-                    "etazh": "3",
-                    "korpus": "@@korpus"
-                })
-            </div>
-        
-        </div>
-        
-    </div>
 </div>

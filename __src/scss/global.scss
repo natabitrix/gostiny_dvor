@@ -547,7 +547,7 @@ section {
 	h2{
 		margin-bottom: 24px;
 	}
-	&__properties {
+	&__info {
 		display: flex;
 		padding-top: 14px;
 		border-top: 1px solid $gray4;
@@ -556,7 +556,7 @@ section {
 			margin-right: 30px;
 		}
 
-		h5 {
+		h5, .h5 {
 			color: $gray2;
 		}
 	}
@@ -574,7 +574,7 @@ section {
 			//margin-right: 30px;
 			align-items: center;
 
-			.h4 {
+			h4, .h4 {
 				margin: 0;
 			}
 
@@ -659,7 +659,11 @@ section {
 		}
 
 		.korpus {
-			cursor: pointer;
+			&:hover {
+				cursor: pointer;
+				fill: $gray3;
+			}
+			
 		}
 
 		&-symbols {
@@ -745,7 +749,90 @@ section {
 	}
 }
 
+.korpus-modal {
 
+	&__info {
+
+		@include media-breakpoint-up(xl) {
+
+		}
+		&-item {
+			padding-right: 0;
+			ul {
+				padding:0 0 0 17px;
+				margin:0;
+			}
+			li {
+				margin-right: 30px;
+				font-size: 16px;
+				line-height: 27px;
+				margin-bottom: 8px;
+			}
+		}
+		.h5 {
+			color: $gray2;
+		}
+	}
+
+	&__tabs {
+		margin-top: 46px;
+		.tab {
+			padding-top: 50px;
+		}
+	}
+
+	.etazh {
+		&__info {
+			@include media-breakpoint-up(xl) {
+	
+			}
+			&-name {
+				color:$white;
+				line-height: 27px;
+			}
+			&-item {
+				padding-right: 0;
+				ul {
+					display:flex
+				}
+				li {
+					margin-right: 30px;
+					font-size: 16px;
+					line-height: 27px;
+					margin-bottom: 8px;
+					.h5 {
+						color: $gray2;
+					}
+				}
+			}
+
+		}
+
+		&__img {
+			margin-top: 20px;
+		}
+	
+		&__symbols {
+			margin-top: 75px;
+			&-item {
+				display:flex;
+				margin-bottom: 15px;
+				padding-right: 0;
+				.icon {
+					width: 24px;
+					height: 24px;
+					border-radius: 100%;
+					margin-right: 14px;
+				}
+
+			}
+			
+		}
+	
+	}
+
+
+}
 /*
 &__ {
 		

@@ -307,50 +307,77 @@ export function popoversInit() {
 
     }
 
-
-
 }
+
 
 /**Модальное всплывающее окно по клику на кнопку, закрытие по клику по кнопке закрытия */
 export function modals() {
 
-    Array.prototype.forEach.call(document.querySelectorAll('[data-modal]'), (modal_btn) => {
-        const modal = document.getElementById(modal_btn.getAttribute('data-modal'));
-        const modal_btn_close = modal.querySelector(".modal-close");
-        const modal_overlay = modal.querySelector(".modal-overlay");
+    if(document.querySelector("[data-modal]") && document.querySelector(".modal"))
+    {
 
-        modalHide(modal);
-        //tabs();
+        Array.prototype.forEach.call(document.querySelectorAll('[data-modal]'), (modal_btn) => {
+            const modal = document.getElementById(modal_btn.getAttribute('data-modal'));
+            const modal_btn_close = modal.querySelector(".modal-close");
+            //const modal_overlay = modal.querySelector(".modal-overlay");
+            const modal_content = modal.querySelector(".modal-content");
 
-        modal_btn.addEventListener("click", function () {
-            modalShow(modal);
-        });
-
-        modal_btn_close.addEventListener("click", function () {
             modalHide(modal);
+
+            modal_btn.addEventListener("click", function () {
+                modalShow(modal);
+                
+                //setTimeout(function() { 
+                //    modal_overlay.classList.add("active");
+                //}, 30);
+            });
+
+            modal_btn_close.addEventListener("click", function () {
+                modalHide(modal);
+                //modal_overlay.classList.remove("active");
+            });
+
+            // modal_overlay.addEventListener("click", function () {
+            //     modalHide(modal);
+            //     modal_overlay.classList.remove("active");
+            // });
+
+            document.addEventListener("click", function (event) {
+                var modalVisible = modal.getAttribute('data-hidden') !== "true";
+                if (
+                    modalVisible && 
+                    !modal_btn.contains(event.target) && 
+                    !modal_content.contains(event.target)
+                ) {
+                    modalHide(modal);
+                }
+            });
+
         });
-
-        modal_overlay.addEventListener("click", function () {
-            modalHide(modal);
-        });
-
-        window.addEventListener('resize', function (event) {
-            //modalPos(modal, modal_btn);
-
-        });
-
-    });
-
-    function modalShow(modal) {
-        modal.classList.add("active");
-        modal.setAttribute('data-hidden', '');
-        document.querySelector('body').classList.add("lock");
     }
 
-    function modalHide(modal) {
+    function modalShow(modal) {
+        modal.style.display = "block";
+        setTimeout(function() { 
+            modal.classList.add("active");
+            document.querySelector('body').classList.add("lock");
+            modal.setAttribute('data-hidden', ''); 
+        }, 30);
+
+        
+    }
+
+
+    function modalHide(modal) {      
         modal.classList.remove("active");
-        modal.setAttribute('data-hidden', 'true');
         document.querySelector('body').classList.remove("lock");
+        modal.setAttribute('data-hidden', 'true');
+        setTimeout(function() { 
+            modal.style.display = "none";
+        }, 100);
+
+        
+        
     }
 
 }
@@ -360,67 +387,54 @@ export function modals() {
 /**Tabs */
 export function tabs() {
     const tabList = document.querySelectorAll(".tab-list-item");
-    const tabContent = document.querySelectorAll(".tab");
 
-    var cookieTab = getCookie("tab");
-
+    //toggle tab
     Array.prototype.forEach.call(tabList, function (tabListItem) {
+        tabListItem.addEventListener("click", function () {
+            tabsHide();
+            tabShow(tabListItem);
+        });
+    });
 
+    //установить активной первую табу при открытии модала
+    Array.prototype.forEach.call(document.querySelectorAll('[data-modal]'), function (modal_btn) {
+        modal_btn.addEventListener("click", function () {
+            const modal = document.getElementById(modal_btn.getAttribute('data-modal'));
+            if(modal.querySelector(".tabs")){
+                var tabListModal = modal.querySelectorAll(".tab-list-item");
+                tabsHide();
+                tabShow(tabListModal[0]);
+            }
+        });
+    });
+
+
+
+    function tabShow(tabListItem) {
         const thisId = tabListItem.id;
         const tabContentId = thisId + "-content";
         let thisTabContentItem = document.getElementById(tabContentId);
+        //Добавить активность активной tab
+        tabListItem.classList.add("active");
+        //Открытие активной tab-content
+        thisTabContentItem.classList.remove("d-none");
+    }
 
-
-        if (cookieTab && cookieTab == thisId) {
-            //Скрытие всех tab-content
-            Array.prototype.forEach.call(tabContent, function (tabContentItem) {
-                tabContentItem.classList.add("d-none");
-            });
-            //Открытие активной tab-content
-            thisTabContentItem.classList.remove("d-none");
-
-            //Убрать активность у всех tab
-            Array.prototype.forEach.call(tabList, function (tabListItem) {
-                tabListItem.classList.remove("active");
-            });
-
-            //Добавить активность активной tab
-            tabListItem.classList.add("active");
-        }
-
-
-        tabListItem.addEventListener("click", function () {
-
-            setCookie("tab", thisId, {
-                expires: 31557600,
-                path: "/",
-                domain: window.location.hostname
-            });
-
-            //Скрытие всех tab-content
-            Array.prototype.forEach.call(tabContent, function (tabContentItem) {
-                tabContentItem.classList.add("d-none");
-            });
-            //Открытие активной tab-content
-            thisTabContentItem.classList.remove("d-none");
-
-            //Убрать активность у всех tab
-            Array.prototype.forEach.call(tabList, function (tabListItem) {
-                tabListItem.classList.remove("active");
-            });
-
-            //Добавить активность активной tab
-            tabListItem.classList.add("active");
-
-
-            collapseContent();
-            resizeTextarea();
-            popoversInit();
-            swiperFullScreen();
-            //setGallerySliderHeight(gallerySlider);
-
+    function tabsHide() {
+        const tabList = document.querySelectorAll(".tab-list-item");
+        const tabContent = document.querySelectorAll(".tab");
+        //Убрать активность у всех tab
+        Array.prototype.forEach.call(tabList, function (tabListItem) {
+            tabListItem.classList.remove("active");
         });
-    });
+        //Скрытие всех tab-content
+        Array.prototype.forEach.call(tabContent, function (tabContentItem) {
+            tabContentItem.classList.add("d-none");
+        });
+        
+    }
+
+
 }
 
 

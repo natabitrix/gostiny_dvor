@@ -42,16 +42,13 @@ const viewportWidth = document.documentElement.clientWidth;//вычисляем 
 
 addEventListener('DOMContentLoaded', () => {
 
-    //tabs();
-    //swiperFullScreen();
-    //collapseContent();
-    //resizeTextarea();
-    //opoversInit();
-    //popovers();
+    //flsFunctions.swiperFullScreen();
+    //flsFunctions.collapseContent();
+    //flsFunctions.resizeTextarea();
+    //flsFunctions.popovers();
 
     flsFunctions.modals();
-    
-
+    flsFunctions.tabs()
 
     addEventListener('resize', (event) => {
 
