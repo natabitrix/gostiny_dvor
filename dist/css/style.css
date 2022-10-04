@@ -1681,6 +1681,7 @@ ul.columns-4 li {
 }
 
 .modal {
+  display: none;
   position: fixed;
   z-index: 30;
   width: 100%;
@@ -2275,9 +2276,15 @@ section {
   max-width: 100%;
   height: auto;
 }
-.arenda__map .korpus:hover {
-  cursor: pointer;
+.arenda__map svg path {
+  transition: all 0.3s ease;
+}
+.arenda__map svg path.active {
   fill: #383D47;
+}
+.arenda__map .korpus {
+  fill-opacity: 0;
+  cursor: pointer;
 }
 .arenda__map-symbols {
   margin-top: 30px;

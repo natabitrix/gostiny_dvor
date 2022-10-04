@@ -48,7 +48,9 @@ addEventListener('DOMContentLoaded', () => {
     //flsFunctions.popovers();
 
     flsFunctions.modals();
-    flsFunctions.tabs()
+    flsFunctions.tabs();
+    flsFunctions.korpusHover();
+
 
     addEventListener('resize', (event) => {
 

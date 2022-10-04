@@ -313,11 +313,11 @@ export function popoversInit() {
 /**Модальное всплывающее окно по клику на кнопку, закрытие по клику по кнопке закрытия */
 export function modals() {
 
-    if(document.querySelector("[data-modal]") && document.querySelector(".modal"))
+    if(document.querySelectorAll(".modal").length > 0)
     {
+        Array.prototype.forEach.call(document.querySelectorAll('.modal'), (modal) => {
 
-        Array.prototype.forEach.call(document.querySelectorAll('[data-modal]'), (modal_btn) => {
-            const modal = document.getElementById(modal_btn.getAttribute('data-modal'));
+            const modal_btn = document.querySelector('[data-modal='+modal.id+']');
             const modal_btn_close = modal.querySelector(".modal-close");
             //const modal_overlay = modal.querySelector(".modal-overlay");
             const modal_content = modal.querySelector(".modal-content");
@@ -438,7 +438,22 @@ export function tabs() {
 }
 
 
+export function korpusHover() {
+    
+    if(document.querySelectorAll(".korpus").length > 0)
+    {
+        Array.prototype.forEach.call(document.querySelectorAll('.korpus'), (korpus) => {
+            const kontur = document.getElementById(korpus.getAttribute("data-kontur"));
 
+            korpus.addEventListener('mouseenter', e => {
+                kontur.classList.add('active');
+            });
+            korpus.addEventListener('mouseleave', e => {
+                kontur.classList.remove('active');
+            });
+        })
+    }
+}
 
 
 

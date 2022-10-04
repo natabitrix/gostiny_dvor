@@ -656,14 +656,20 @@ section {
 		svg {
 			max-width: 100%;
 			height: auto;
+
+
+			path{
+				transition: all 0.3s ease;
+				&.active {
+					fill: $gray3;
+				}
+				
+			}
 		}
 
 		.korpus {
-			&:hover {
-				cursor: pointer;
-				fill: $gray3;
-			}
-			
+			fill-opacity: 0;
+			cursor: pointer;
 		}
 
 		&-symbols {

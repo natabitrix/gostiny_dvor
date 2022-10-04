@@ -1095,6 +1095,7 @@ ul.columns-4 {
 $scrollBarWidth: 17px;
 
 .modal {
+	display:none;
 	&-overlay {
 		position:fixed;
 		z-index: 20;
