@@ -1,13 +1,14 @@
 import * as flsFunctions from "./modules/functions.js";
 flsFunctions.isWebP();
-flsFunctions.isMobile();
+//flsFunctions.isMobile();
 
 
 import VanillaScrollspy from 'vanillajs-scrollspy';
 const menu = document.querySelector('#navbar');
-const scrollspy = VanillaScrollspy({ menu });
-scrollspy.init();
-
+if (menu) {
+    const scrollspy = VanillaScrollspy({ menu });
+    scrollspy.init();
+}
 
 import Sticky from './modules/sticky-js/sticky.js';
 var sticky = new Sticky('[data-sticky]', {});
@@ -32,24 +33,44 @@ const slider = new Swiper('.slider', {
 
 
 
+// import Lightense from 'lightense-images';
+// window.addEventListener('load', function () {
+//     var el = document.querySelectorAll('img.lightense');
+//     Lightense(el, {
+//         time: 300,
+//         padding: 10,
+//         offset: 40,
+//         keyboard: true,
+//         cubicBezier: 'cubic-bezier(.2, 0, .1, 1)',
+//         background: 'rgba(46, 48, 54, .9)',
+//         zIndex: 50,
+//         beforeShow(config) {
+//             //document.querySelector('body').classList.add('img-enlarge');
+            
+//         },
+//         afterShow(config) {
+//         },
+//         beforeHide(config) {
+//         },
+//         afterHide(config) {
+//             //document.querySelector('body').classList.remove('img-enlarge');
+//         }
+//     });
+// }, false);
+
 
 
 const viewportWidth = document.documentElement.clientWidth;//вычисляем ширину вьюпорта
 
 
-
-
-
 addEventListener('DOMContentLoaded', () => {
 
-    //flsFunctions.swiperFullScreen();
-    //flsFunctions.collapseContent();
-    //flsFunctions.resizeTextarea();
-    //flsFunctions.popovers();
-
+    flsFunctions.interactiveSvgPath(arrInteractiveSvgPath);
+    flsFunctions.interactiveSvgPathDouble("svg_arenda", arrInteractiveSvgPathDouble);
     flsFunctions.modals();
     flsFunctions.tabs();
-    flsFunctions.korpusHover();
+    flsFunctions.mobileMenu();
+    flsFunctions.scrollTopButton();
 
 
     addEventListener('resize', (event) => {

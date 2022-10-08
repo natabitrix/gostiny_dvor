@@ -1,4 +1,4 @@
-<div class="modal korpus-modal" id="korpus@@korpus">
+<div class="modal korpus-modal" id="modal-@@korpusPath">
     <div class="modal-overlay"></div>
 
     <div class="modal-window">
@@ -48,7 +48,8 @@
                             @@include('modal-korpus-etazh.html', {
                                 "active": "`+etazhi[i].active+`",
                                 "etazh": "`+etazhi[i].etazh+`",
-                                "korpus": "@@korpus"
+                                "korpus": "@@korpus",
+                                "rooms": "@@rooms"
                             })
                         }
                     </div>

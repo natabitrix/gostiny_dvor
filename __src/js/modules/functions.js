@@ -324,25 +324,19 @@ export function modals() {
 
             modalHide(modal);
 
-            modal_btn.addEventListener("click", function () {
-                modalShow(modal);
-                
-                //setTimeout(function() { 
-                //    modal_overlay.classList.add("active");
-                //}, 30);
-            });
+            if(modal_btn) {
+                modal_btn.addEventListener("click", function () {
+                    modalShow(modal);
+                });
+            }
 
-            modal_btn_close.addEventListener("click", function () {
-                modalHide(modal);
-                //modal_overlay.classList.remove("active");
-            });
+            if(modal_btn_close) {
+                modal_btn_close.addEventListener("click", function () {
+                    modalHide(modal);
+                });
+            }
 
-            // modal_overlay.addEventListener("click", function () {
-            //     modalHide(modal);
-            //     modal_overlay.classList.remove("active");
-            // });
-
-            document.addEventListener("click", function (event) {
+            /*document.addEventListener("click", function (event) {
                 var modalVisible = modal.getAttribute('data-hidden') !== "true";
                 if (
                     modalVisible && 
@@ -351,7 +345,7 @@ export function modals() {
                 ) {
                     modalHide(modal);
                 }
-            });
+            });*/
 
         });
     }
@@ -367,7 +361,6 @@ export function modals() {
         
     }
 
-
     function modalHide(modal) {      
         modal.classList.remove("active");
         document.querySelector('body').classList.remove("lock");
@@ -375,11 +368,7 @@ export function modals() {
         setTimeout(function() { 
             modal.style.display = "none";
         }, 100);
-
-        
-        
     }
-
 }
 
 
@@ -438,22 +427,130 @@ export function tabs() {
 }
 
 
-export function korpusHover() {
-    
-    if(document.querySelectorAll(".korpus").length > 0)
-    {
-        Array.prototype.forEach.call(document.querySelectorAll('.korpus'), (korpus) => {
-            const kontur = document.getElementById(korpus.getAttribute("data-kontur"));
+export function interactiveSvgPathDouble(containerSvgId, arrPath) {
 
-            korpus.addEventListener('mouseenter', e => {
-                kontur.classList.add('active');
+
+    if(containerSvgId && arrPath && arrPath.length > 0)
+    {
+        const containerSvg = document.getElementById(containerSvgId);
+        if(containerSvg)
+        {
+            Array.prototype.forEach.call(arrPath, (pathID) => {
+                const path = document.getElementById(pathID);  
+                const clone_path = path.cloneNode(true);
+                clone_path.setAttribute("data-path", pathID);
+                clone_path.classList.add('over');
+                containerSvg.append(clone_path);
+                path.removeAttribute("id");
+                path.classList.add('interactive');
+
+                if(document.getElementById("modal-"+pathID)) {
+                    clone_path.setAttribute("data-modal", "modal-"+pathID);
+                }
+                clone_path.addEventListener('mouseenter', e => {
+                    path.classList.add('active');
+                });
+                clone_path.addEventListener('mouseleave', e => {
+                    path.classList.remove('active');
+                });
             });
-            korpus.addEventListener('mouseleave', e => {
-                kontur.classList.remove('active');
+        }
+    }
+}
+
+
+export function interactiveSvgPath(arrPath) {
+    if(arrPath && arrPath.length > 0)
+    {
+        Array.prototype.forEach.call(arrPath, (pathID) => {
+            const path = document.getElementById(pathID);
+
+            if(document.getElementById("modal-"+pathID)) {
+                path.setAttribute("data-modal", "modal-"+pathID);
+            }
+
+            path.classList.add('interactive');
+
+            path.addEventListener('mouseenter', e => {
+                path.classList.add('active');
+            });
+
+            path.addEventListener('mouseleave', e => {
+                path.classList.remove('active');
             });
         })
     }
 }
+
+
+export function mobileMenu() {
+    const mobileBtnOpen = document.querySelector('.mobile_menu_open');
+    const mobileBtnClose = document.querySelector('.mobile_menu_close');
+    const mobileHeader = document.querySelector('.header-mobile');
+    const mobileHeaderHeight = mobileHeader.clientHeight;
+    const menu = document.querySelector('#navbar');
+
+    if(mobileBtnOpen){
+        mobileBtnOpen.addEventListener("click", function () {
+            document.querySelector('body').classList.add("mobile_menu_opened");
+        });
+    }
+    if(mobileBtnClose){
+        mobileBtnClose.addEventListener("click", function () {
+            document.querySelector('body').classList.remove("mobile_menu_opened");
+        });
+    }
+    function bodyClsScroll() {
+        if(mobileHeader) {
+            if (document.body.scrollTop > mobileHeaderHeight || 
+                document.documentElement.scrollTop > mobileHeaderHeight) {
+                document.querySelector('body').classList.add("scrolled");
+            } else {
+                document.querySelector('body').classList.remove("scrolled");
+            }
+        }
+    }
+    bodyClsScroll();
+    addEventListener('scroll', (event) => {
+        bodyClsScroll();
+    });
+
+    Array.prototype.forEach.call(menu.querySelectorAll('a[href^="#"]'), (link) => {
+        link.addEventListener("click", function () {
+            document.querySelector('body').classList.remove("mobile_menu_opened");
+        });
+    });
+}
+
+
+export function scrollTopButton() {
+    const btn = document.getElementById("scrollTopBtn");
+    if(btn) {
+        var isMouseWheelTop;
+        var lastScrollTop = 0;
+        addEventListener('mousewheel', (event) => {
+            isMouseWheelTop = (event.wheelDelta >= 0) ? true : false;
+        });
+        addEventListener('scroll', (event) => {
+            var scrollTop = document.documentElement.scrollTop;
+            var isScrolledToTop = (scrollTop > lastScrollTop) ? false : true;	
+            lastScrollTop = scrollTop;
+
+            if ((isScrolledToTop || isMouseWheelTop) && 
+                (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+            ) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        });
+
+        btn.addEventListener("click", function () {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    }
+}
+
 
 
 

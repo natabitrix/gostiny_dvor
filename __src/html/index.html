@@ -1,10 +1,33 @@
 @@include('_common/header.html', {
 "class": " home-page",
 })
+<!--TODO:  
+Форма:
+    Шаблон, проверить отправку
+    Рекапча
+    Отправка аяксом
+    Ошибки
+    Маска телефона
+
+Адаптив 
+    увеличение картинки по клику
+    слайдер лейзи лоад
+    модалы + табы
+Подписка +-
 
 
+svg - 
+1) экспортировать из фигрмы с id
+2) svg редактировать в notepad++ > переименовать все id на уникальный (например для корпус 1, этаж 1 > найти и заменить > заменить `id="Vector` на `id="korpus1_etazh1_room` )
+3) загрузить svg в "Этаж", зайти на сайт.
+3) найти загруженую картинку > ПКМ по нужному помещению > просмотреть код > скопировать ИД > вставить в св-во "ID соответствующего контура на svg плане" 
 
 
+Модал
+    Инфо корпуса, инфо этажа, иконки этажа - исправить колонки
+
+
+-->
 
 <main class="main">
 
@@ -16,20 +39,24 @@
                     <h1>
                         Торговый комплекс «Гостиный двор»
                     </h1>
-                    
-                    <p>Современный торговый комплекс в Усть-Каменогорске, который дает большие возможности для успешного бизнеса. Аренда
+
+                    <p>Современный торговый комплекс в Усть-Каменогорске, который дает большие возможности для успешного
+                        бизнеса. Аренда
                         торговых и административных помещений в центре города.
                     </p>
-                    
-                    
+
+
                     <h5>Статус объекта</h5>
                     <p>Финишная отделка
                     </p>
-                    
-                    
+
+
                     <h5>Планируемая дата открытия</h5>
                     <p> 1 ноября 2022 года
                     </p>
+
+                    <a href="" class="link-pdf"><div class="icon"><img src="@img/icons/pdf.svg" alt=""></div>Презентация торгового комплекса</a>
+
                 </div>
                 <div class="oproekte__slider col-lg-6">
                     @@include('include/slider.html')
@@ -39,11 +66,11 @@
 
         <div class="section2">
 
-            <div class="bg" data-sticky data-sticky-class="is-sticky" data-sticky-for="0" data-margin-top="0">
+            <!--div class="bg" data-sticky data-sticky-class="is-sticky" data-sticky-for="0" data-margin-top="0">
                 <div class="container">
                     <img src="@img/bg-logo.svg" alt="" class="img-fluid">
                 </div>
-            </div>
+            </div-->
 
 
             <div class="container text-container">
@@ -51,15 +78,20 @@
                     <div class="oproekte__text col-lg-6">
                         <h3>Центр притяжения</h3>
 
-                        <p>Благодаря своим ключевым арендаторам, торговый комплекс "Гостиный двор" является местом притяжения не только для жителей Усть-Каменогорска, но и магнитом для гостей областного центра и жителей близлежащих городов и поселков. Абсолютно разные гости: по возрасту и профессии, интересам и жизненным ценностям, но каждому их них здесь уютно и интересно.
+                        <p>Благодаря своим ключевым арендаторам, торговый комплекс "Гостиный двор" является местом
+                            притяжения не только для жителей Усть-Каменогорска, но и магнитом для гостей областного
+                            центра и жителей близлежащих городов и поселков. Абсолютно разные гости: по возрасту и
+                            профессии, интересам и жизненным ценностям, но каждому их них здесь уютно и интересно.
                         </p>
-                        
+
                     </div>
                     <div class="oproekte__text col-lg-6">
                         <h3>Профиль покупателя</h3>
 
-                        <p>Торговый комплекс "Гостиный двор" ориентирован на широкий круг потребителей со средним доходом. Возраст потенциального покупателя неограничен, так как список товаров и услкг максимально широк по ассортименту и ценовому предложению.</p>
-                  
+                        <p>Торговый комплекс "Гостиный двор" ориентирован на широкий круг потребителей со средним
+                            доходом. Возраст потенциального покупателя неограничен, так как список товаров и услкг
+                            максимально широк по ассортименту и ценовому предложению.</p>
+
                     </div>
                 </div>
 
@@ -72,27 +104,29 @@
         <div class="container">
             <h2>Инфраструктура</h2>
 
-            <ul class="infrastruktura__info list-unstyled">
-                <li>
-                    <h5>Территория</h5>
-                    35000 кв.м
-                </li>
-                <li>
-                    <h5>Территория</h5>
-                    35000 кв.м
-                </li>
-                <li>
-                    <h5>Территория</h5>
-                    35000 кв.м
-                </li>
-                <li>
-                    <h5>Покрытие проездов и тротуаров</h5>
-                    35000 кв.м
-                </li>
-            </ul>
+            <div class="infrastruktura__info">
+                <ul>
+                    <li>
+                        <h5>Территория</h5>
+                        35000 кв.м
+                    </li>
+                    <li>
+                        <h5>Территория</h5>
+                        35000 кв.м
+                    </li>
+                    <li>
+                        <h5>Территория</h5>
+                        35000 кв.м
+                    </li>
+                    <li>
+                        <h5>Покрытие проездов и тротуаров</h5>
+                        35000 кв.м
+                    </li>
+                </ul>
+            </div>
 
             <div class="infrastruktura__img text-center">
-                <img src="@img/infrastruktura.svg" alt="" class="img-fluid">
+                <img src="@img/infrastruktura.svg" alt="" class="img-fluid lightense">
             </div>
 
             <ul class="infrastruktura__features list-unstyled columns-3">
@@ -121,7 +155,23 @@
                     <div class="h4">Транспортная и пешеходная доступность</div>
                 </li>
             </ul>
+        </div>
+    </section>
 
+
+    <section class="geography" id="geography">
+        <div class="container">
+            <h2>Географическое расположение</h2>
+            <div class="geography__info">
+                <p>Каждому клиенту мы предлагаем партнерское сотрудничество и готовы предоставить торговые помещение
+                    по
+                    выгодной стоимости и в максимально удобном расположении.</p>
+            </div>
+
+
+            <div class="geography__img">
+                <img src="@img/geography.svg" alt="6866" class="img-fluid lightense">
+            </div>
         </div>
     </section>
 
@@ -142,15 +192,32 @@
             <div class="arenda__button">
                 <div class="button">
                     Веберите корпус
-                    <div class="icon"><img src="@img/icons/arrow-down.svg" alt="&darr;"></div>
+
+                    <div class="icon">
+                        <div class="arrow-animate">
+                            <div class="arrow_sliding">
+                                <div class="arrow"></div>
+                            </div>
+                            <div class="arrow_sliding delay1">
+                                <div class="arrow"></div>
+                            </div>
+                            <div class="arrow_sliding delay2">
+                                <div class="arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
             </div>
 
             <div class="arenda__map">
-                @@include('include/map.svg.html')
+                @@include('include/map.svg')
             </div>
 
-            
+
 
             <ul class="arenda__map-symbols list-unstyled columns-3">
                 <li>
@@ -263,19 +330,19 @@
 
                         <div class="col-lg-6">
                             <div class="form-row">
-                                
-                                <div class="form-field file">
+
+
+                                <div class="form-field">
                                     <input type="file" id="file">
-                                    <label for="file">Прикрепить файл</label>
                                 </div>
                                 <p>В формате pdf. Не более 15 mb </p>
 
                             </div>
                         </div>
-                        
+
                     </div>
 
-                    
+
 
                     <div class="form-row">
                         <div class="form-field form-field-agree check">
@@ -304,15 +371,52 @@
             <div class="row">
                 <div class="ozastroyshike__text col-lg-6">
                     <h2>О застройщике</h2>
-<p>Группа компаний «СВК» — одна из крупнейших компаний в Восточном Казахстане, сформированная в 2016 году на базе ТОО «Фирма «НКГ» — старейшей компании из входящих в структуру, созданной в 1994 году.
-</p>
-<p>Мы занимаем ведущие позиции на рынке предоставления аренды коммерческих помещений в городе Усть- Каменогорск, а также в сферах медиа и торговли в Восточном Казахстане.
-</p>
-<p>«СВК» неуклонно наращивает обороты и расширяет свои горизонты в области торговли и СМИ, а также активно участвует в новых инвестиционных проектах.
-</p>
+                    <p>Группа компаний «СВК» — одна из крупнейших компаний в Восточном Казахстане, сформированная в 2016
+                        году на базе ТОО «Фирма «НКГ» — старейшей компании из входящих в структуру, созданной в 1994
+                        году.
+                    </p>
+                    <p>Мы занимаем ведущие позиции на рынке предоставления аренды коммерческих помещений в городе Усть-
+                        Каменогорск, а также в сферах медиа и торговли в Восточном Казахстане.
+                    </p>
+                    <p>«СВК» неуклонно наращивает обороты и расширяет свои горизонты в области торговли и СМИ, а также
+                        активно участвует в новых инвестиционных проектах.
+                    </p>
                 </div>
                 <div class="ozastroyshike__slider col-lg-6">
                     @@include('include/slider.html')
+                </div>
+            </div>
+
+            <div class="subscribe">
+                <div class="subscribe__form">
+                    <form action="" class="form">
+
+                        <div class="h2">Узнавайте первыми
+                            о новостях торгового центра</div>
+                        <p>Оставьте свою электронную почту и мы вам что-то сообщим</p>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <input type="text" placeholder="Ваш e-mail">
+                            </div>
+                        </div>
+
+
+                        <!--div class="form-row">
+                            <div class="form-field form-field-agree check">
+                                <label for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <span></span>
+                                    Я согласен на обработку персональных данных
+                                </label>
+                            </div>
+                        </div-->
+
+
+                        <div class="form-row button">
+                            <button type="submit" class="btn">Подписаться</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
 
@@ -326,11 +430,11 @@
         </div>
 
         <div class="container contacts__map">
-            <div class="map"><img src="@img/demo/map.jpg" alt="" class="img-fluid"></div>
+
             <div class="contacts__contacts">
                 <h5>Электронная почта</h5>
                 <p>info@svkgroup@kz</p>
-                
+
                 <h5>Адрес</h5>
                 <p>070004, Казахстан, Усть-Каменогорск, пр. Ауэзова,28</p>
 
@@ -341,8 +445,11 @@
                 <p>+7 7232 208-777</p>
 
             </div>
+
+            <div class="map"><img src="@img/demo/map.jpg" alt="" class="img-fluid"></div>
+
         </div>
-        
+
     </section>
 
 

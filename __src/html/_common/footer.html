@@ -29,15 +29,48 @@
 @@loop('../include/modal-korpus.html', [
 	{
 		"korpus": "1",
+		"korpusPath": "korpus_263",
 		"korpusName": "I",
 		"etazhi": [
-				{"etazh":"1", "active": "active"},
-				{"etazh":"2", "active": ""},
+				{"etazh":"1", "active": "active", "rooms": 
+					[{"name":"35-H", 
+						"square": "95кв.м", 
+						"electro": "5квт/ч", 
+						"other": "95кв.м", 
+						"naznachenie": "торговое, мясные продукты",
+						"tel": "+7 777 208-22-32"
+						},
+						{"name":"22-H", 
+						"square": "95кв.м", 
+						"electro": "5квт/ч", 
+						"other": "95кв.м", 
+						"naznachenie": "торговое, мясные продукты",
+						"tel": "+7 777 208-22-32"
+						},
+					]
+				},
+				{"etazh":"2", "active": "", "rooms": 
+				[{"name":"35-H", 
+					"square": "95кв.м", 
+					"electro": "5квт/ч", 
+					"other": "95кв.м", 
+					"naznachenie": "торговое, мясные продукты",
+					"tel": "+7 777 208-22-32"
+					},
+					{"name":"22-H", 
+					"square": "95кв.м", 
+					"electro": "5квт/ч", 
+					"other": "95кв.м", 
+					"naznachenie": "торговое, мясные продукты",
+					"tel": "+7 777 208-22-32"
+					},
+				]},
 				{"etazh":"3", "active": ""},
 			]
 	},
 	{
 		"korpus": "2",
+		"korpusPath": "korpus_259",
 		"korpusName": "II",
 		"etazhi": [
 				{"etazh":"1", "active": "active"},
@@ -45,6 +78,7 @@
 	},
 	{
 		"korpus": "3",
+		"korpusPath": "korpus_261",
 		"korpusName": "III",
 		"etazhi": [
 				{"etazh":"1", "active": "active"},
@@ -53,6 +87,7 @@
 	},
 	{
 		"korpus": "4",
+		"korpusPath": "korpus_86",
 		"korpusName": "IV",
 		"etazhi": []
 	}
@@ -60,8 +95,17 @@
 
 
 
+@@include('../include/modal-korpus-etazh-room.html')
+
+<script>
+	arrInteractiveSvgPathDouble.push("korpus_263", "korpus_259", "korpus_261", "korpus_86");
+	arrInteractiveSvgPath.push("korpus1_etazh1_room14", "korpus1_etazh1_room19", "korpus1_etazh1_room20", "korpus1_etazh2_room5");
+</script>
 
 
+<button type="button" id="scrollTopBtn" class="btn_scroll_top btn btn-simple btn-circle-56">
+	<div class="icon"><img src="@img/icons/arrow-right.svg" alt="&darr;"></div>
+</button>
 
 </div>
 <!--.wrapper-->

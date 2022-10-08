@@ -2,12 +2,12 @@
 
     <div class="etazh__info row">
         <div class="etazh__info-item col-lg-3">
-            <div class="etazh__info-name h5">Комплекс потребительских товаров и услуг
-                <!--br>Корпус: @@korpus; Этаж: @@etazh-->
+            <div class="etazh__info-name h5">
+                Комплекс потребительских товаров и услуг
             </div>
         </div>
         <div class="etazh__info-item col-lg-8">
-            <ul class="list-unstyled">
+            <ul>
                 <li>
                     <div class="h5">Площадь</div>
                     <p>1750 кв.м</p>
@@ -22,7 +22,10 @@
     </div>
 
     <div class="etazh__img">
-        <img src="@img/map/korpus@@korpus/etazh@@etazh.svg" alt="" class="img-fluid">
+        <!--img src="@img/map/korpus@@korpus/etazh@@etazh.svg" alt="" class="img-fluid"-->
+
+        @@include('../../img/map/korpus@@korpus/etazh@@etazh.svg')
+
     </div>
 
     <div class="etazh__symbols">
@@ -55,7 +58,7 @@
                 Кафе быстрого питания
             </div>
         </div>
-        
+
         <div class="row">
             <div class="etazh__symbols-item col-lg-3">
                 <div class="icon" style="background-color:#B6CBD7"></div>
@@ -69,3 +72,21 @@
     </div>
 
 </div>
+
+<!--
+@@if (rooms.length > 0) {
+    @@for (var j = 0; j < rooms.length; j++) {
+        @@include('modal-korpus-etazh-room.html', {
+            "name": "test",
+            "code": "korpus@@korpus_etazh@@etazh_room14",
+            "square": "`+rooms[j].square+`",
+            "electro": "`+rooms[j].electro+`",
+            "other": "`+rooms[j].other+`",
+            "naznachenie": "`+rooms[j].naznachenie+`",
+            "tel": "`+rooms[j].tel+`"
+        })
+    }
+}
+-->
+
+
