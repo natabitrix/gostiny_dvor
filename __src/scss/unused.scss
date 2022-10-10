@@ -98,38 +98,38 @@
 
 
 
-// .bg {
-// 	display: none;
-// 	position: absolute;
-// 	z-index: 0;
-// 	height: 100%;
-// 	width: 100% !important;
-// 	background-image: url(../img/bg-logo.svg);
-// 	background-repeat: no-repeat;
-// 	background-position: 50% 50%;
-// 	background-size: 87%;
-// 	@include media-breakpoint-up(lg) {
-// 		background-size: 992px;
-// 	}
-// 	@include media-breakpoint-up(xl) {
-// 		background-size: 1280px;
-// 	}
+.bg {
+	display: none;
+	position: absolute;
+	z-index: 0;
+	height: 100%;
+	width: 100% !important;
+	background-image: url(../img/bg-logo.svg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 87%;
+	@include media-breakpoint-up(lg) {
+		background-size: 992px;
+	}
+	@include media-breakpoint-up(xl) {
+		background-size: 1280px;
+	}
 
-// 	&.fixed {
-// 		position: fixed;
-// 		height: 100vh;
-// 		top: 0;
-// 	}
+	&.fixed {
+		position: fixed;
+		height: 100vh;
+		top: 0;
+	}
 
-// 	.conainer {
-// 		margin: 0 auto;
-// 	}
+	.conainer {
+		margin: 0 auto;
+	}
 
-// 	img {
-// 		display: none;
-// 	}
+	img {
+		display: none;
+	}
 
-// 	.container {
-// 		padding: 0;
-// 	}
-// }
+	.container {
+		padding: 0;
+	}
+}

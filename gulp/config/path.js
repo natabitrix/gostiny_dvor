@@ -34,6 +34,6 @@ export const path = {
     buildFolder: buildFolder,
     srcFolder: srcFolder,
     rootFolder: rootFolder,
-    ftp: ``,
+    ftp: `/home/bitrix/ext_www/gostinydvor.kz/local/templates/gostinydvor`, //папка на удаленном сервере
   
   }

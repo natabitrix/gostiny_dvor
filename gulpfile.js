@@ -3,6 +3,9 @@
 //3. npm i -D webp-converter@2.2.3
 //4. gulp
 
+//npm run build - для продакшн
+//npm run deploy - выгрузка на фтп
+
 /**
  * path-autocomplete F1 > open user settings json (C:\Users\Nata\AppData\Roaming\Code\User\settings.json)
  *     "path-autocomplete.pathMappings": {
@@ -41,7 +44,8 @@ import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
 
 //import { svgSprive } from "./gulp/tasks/svgSprive.js";
 //import { zip } from "./gulp/tasks/zip.js";
-//import { ftp } from "./gulp/tasks/ftp.js";
+
+import { ftp } from "./gulp/tasks/ftp.js";
 
 // Наблюдатель за изменениями в файлах
 function watcher() {
@@ -64,13 +68,13 @@ const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images)
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks);
 //const deployZIP = gulp.series(reset, mainTasks, zip);
-//const deployFTP = gulp.series(reset, mainTasks, ftp);
+const deployFTP = gulp.series(reset, mainTasks, ftp);
 
 // Экспорт сценраиев
 export { dev }
 export { build }
 //export { deployZIP }
-//export { deployFTP }
+export { deployFTP }
 
 // Выполнение сценария по умолчанию
 gulp.task('default', dev);

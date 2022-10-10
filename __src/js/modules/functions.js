@@ -319,10 +319,8 @@ export function modals() {
 
             const modal_btn = document.querySelector('[data-modal='+modal.id+']');
             const modal_btn_close = modal.querySelector(".modal-close");
-            //const modal_overlay = modal.querySelector(".modal-overlay");
-            const modal_content = modal.querySelector(".modal-content");
-
-            modalHide(modal);
+            const modal_window = modal.querySelector(".modal-window");
+            // modalHide(modal);
 
             if(modal_btn) {
                 modal_btn.addEventListener("click", function () {
@@ -336,38 +334,44 @@ export function modals() {
                 });
             }
 
-            /*document.addEventListener("click", function (event) {
-                var modalVisible = modal.getAttribute('data-hidden') !== "true";
-                if (
-                    modalVisible && 
-                    !modal_btn.contains(event.target) && 
-                    !modal_content.contains(event.target)
-                ) {
+            modal_window.addEventListener("click", function (event) {
+                if(event.target.parentNode.id == modal.id)
                     modalHide(modal);
-                }
-            });*/
+            });
 
         });
+
     }
 
-    function modalShow(modal) {
-        modal.style.display = "block";
+    function modalShow(thisModal) {
+        thisModal.style.display = "block";
         setTimeout(function() { 
-            modal.classList.add("active");
+            thisModal.classList.add("active");
             document.querySelector('body').classList.add("lock");
-            modal.setAttribute('data-hidden', ''); 
+            thisModal.setAttribute('data-hidden', 'false'); 
         }, 30);
 
         
     }
 
-    function modalHide(modal) {      
-        modal.classList.remove("active");
-        document.querySelector('body').classList.remove("lock");
-        modal.setAttribute('data-hidden', 'true');
+    function modalHide(thisModal) {      
+        thisModal.classList.remove("active");
+        thisModal.setAttribute('data-hidden', 'true');
         setTimeout(function() { 
-            modal.style.display = "none";
+            thisModal.style.display = "none";
         }, 100);
+
+        var openedModal = 0;
+        Array.prototype.forEach.call(document.querySelectorAll('.modal'), (modal) => {
+            if(modal.getAttribute('data-hidden') == 'false') {
+                openedModal++;
+            }
+        });
+
+        if(openedModal == 0) {
+            document.querySelector('body').classList.remove("lock");
+        }
+            
     }
 }
 
@@ -492,14 +496,22 @@ export function mobileMenu() {
 
     if(mobileBtnOpen){
         mobileBtnOpen.addEventListener("click", function () {
-            document.querySelector('body').classList.add("mobile_menu_opened");
+            // document.querySelector('body').setAttribute('data-position', document.documentElement.scrollTop);
+            document.documentElement.classList.add("mobile_menu_opened");
+            // document.querySelector('body').style.overflow = "hidden";
+            // document.querySelector('body').style.position = "fixed";
         });
     }
     if(mobileBtnClose){
         mobileBtnClose.addEventListener("click", function () {
-            document.querySelector('body').classList.remove("mobile_menu_opened");
+            document.documentElement.classList.remove("mobile_menu_opened");
+            // var pos = document.querySelector('body').getAttribute('data-position');
+            // window.scrollTo({top: pos});
+            // document.querySelector('body').style.overflow = "unset";
+            // document.querySelector('body').style.position = "unset";
         });
     }
+    
     function bodyClsScroll() {
         if(mobileHeader) {
             if (document.body.scrollTop > mobileHeaderHeight || 
@@ -517,7 +529,7 @@ export function mobileMenu() {
 
     Array.prototype.forEach.call(menu.querySelectorAll('a[href^="#"]'), (link) => {
         link.addEventListener("click", function () {
-            document.querySelector('body').classList.remove("mobile_menu_opened");
+            document.documentElement.classList.remove("mobile_menu_opened");
         });
     });
 }
@@ -549,6 +561,18 @@ export function scrollTopButton() {
             window.scrollTo({top: 0, behavior: 'smooth'});
         });
     }
+}
+
+
+
+
+
+export function fixMobileWindowHeigh() {
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    //css: height: calc(var(--vh, 1vh) * 100);
 }
 
 

@@ -1,33 +1,6 @@
 @@include('_common/header.html', {
 "class": " home-page",
 })
-<!--TODO:  
-Форма:
-    Шаблон, проверить отправку
-    Рекапча
-    Отправка аяксом
-    Ошибки
-    Маска телефона
-
-Адаптив 
-    увеличение картинки по клику
-    слайдер лейзи лоад
-    модалы + табы
-Подписка +-
-
-
-svg - 
-1) экспортировать из фигрмы с id
-2) svg редактировать в notepad++ > переименовать все id на уникальный (например для корпус 1, этаж 1 > найти и заменить > заменить `id="Vector` на `id="korpus1_etazh1_room` )
-3) загрузить svg в "Этаж", зайти на сайт.
-3) найти загруженую картинку > ПКМ по нужному помещению > просмотреть код > скопировать ИД > вставить в св-во "ID соответствующего контура на svg плане" 
-
-
-Модал
-    Инфо корпуса, инфо этажа, иконки этажа - исправить колонки
-
-
--->
 
 <main class="main">
 
@@ -55,7 +28,9 @@ svg -
                     <p> 1 ноября 2022 года
                     </p>
 
-                    <a href="" class="link-pdf"><div class="icon"><img src="@img/icons/pdf.svg" alt=""></div>Презентация торгового комплекса</a>
+                    <a href="" class="link-pdf">
+                        <div class="icon"><img src="@img/icons/pdf.svg" alt=""></div>Презентация торгового комплекса
+                    </a>
 
                 </div>
                 <div class="oproekte__slider col-lg-6">
@@ -126,7 +101,23 @@ svg -
             </div>
 
             <div class="infrastruktura__img text-center">
-                <img src="@img/infrastruktura.svg" alt="" class="img-fluid lightense">
+                
+
+                <div class="swiper swiper-zoom">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="swiper-zoom-container">
+                                <img data-src="@img/infrastruktura.svg" 
+                                data-srcset="@img/infrastruktura.svg" 
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+                                class="swiper-lazy img-fluid" alt="">
+                                <div class="swiper-lazy-preloader"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             <ul class="infrastruktura__features list-unstyled columns-3">
@@ -170,7 +161,21 @@ svg -
 
 
             <div class="geography__img">
-                <img src="@img/geography.svg" alt="6866" class="img-fluid lightense">
+
+                <div class="swiper swiper-zoom">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="swiper-zoom-container">
+                                <img data-src="@img/geography.svg" 
+                                data-srcset="@img/geography.svg" 
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+                                class="swiper-lazy img-fluid" alt="">
+                                <div class="swiper-lazy-preloader"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -214,7 +219,19 @@ svg -
             </div>
 
             <div class="arenda__map">
-                @@include('include/map.svg')
+
+                <div class="swiper swiper-zoom-svg">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="swiper-zoom-container">
+
+                                @@include('include/map.svg')
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
 
@@ -258,13 +275,13 @@ svg -
 
 
             <div class="arenda__form">
-                <form action="" class="form">
+                <form action="" class="form needs-validation">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-row">
                                 <label for="">Название компании</label>
                                 <div class="form-field">
-                                    <input type="text">
+                                    <input type="text" required>
                                 </div>
                             </div>
                         </div>
@@ -323,7 +340,7 @@ svg -
                             <div class="form-row">
                                 <label for="">Контактный телефон</label>
                                 <div class="form-field">
-                                    <input type="text" placeholder="+7 (___) ___-__-__">
+                                    <input type="tel" data-mask="+7 (___) ___-__-__" placeholder="+7 (___) ___-__-__">
                                 </div>
                             </div>
                         </div>
@@ -394,6 +411,10 @@ svg -
                         <div class="h2">Узнавайте первыми
                             о новостях торгового центра</div>
                         <p>Оставьте свою электронную почту и мы вам что-то сообщим</p>
+                        <p id="asd_subscribe_res" class="subscribe__form-message success">
+                            Указан неверный адрес подписки.</p>
+
+
                         <div class="form-row">
                             <div class="form-field">
                                 <input type="text" placeholder="Ваш e-mail">
@@ -462,3 +483,25 @@ svg -
 
 
 @@include('_common/footer.html')
+
+
+<!--TODO:  
+Форма:
+
+    Рекапча
+    Отправка аяксом
+    Ошибки
+    Маска телефона+-
+    слайдер лейзи лоад
+
+
+
+svg - 
+1) экспортировать из фигрмы с id
+2) svg редактировать в notepad++ > переименовать все id на уникальный (например для корпус 1, этаж 1 > найти и заменить > заменить `id="Vector` на `id="korpus1_etazh1_room` )
+3) загрузить svg в "Этаж", зайти на сайт.
+3) найти загруженую картинку > ПКМ по нужному помещению > просмотреть код > скопировать ИД > вставить в св-во "ID соответствующего контура на svg плане" 
+
+
+
+-->

@@ -78,33 +78,6 @@
 
 
 			</header>
-<!--TODO:  
-Форма:
-    Шаблон, проверить отправку
-    Рекапча
-    Отправка аяксом
-    Ошибки
-    Маска телефона
-
-Адаптив 
-    увеличение картинки по клику
-    слайдер лейзи лоад
-    модалы + табы
-Подписка +-
-
-
-svg - 
-1) экспортировать из фигрмы с id
-2) svg редактировать в notepad++ > переименовать все id на уникальный (например для корпус 1, этаж 1 > найти и заменить > заменить `id="Vector` на `id="korpus1_etazh1_room` )
-3) загрузить svg в "Этаж", зайти на сайт.
-3) найти загруженую картинку > ПКМ по нужному помещению > просмотреть код > скопировать ИД > вставить в св-во "ID соответствующего контура на svg плане" 
-
-
-Модал
-    Инфо корпуса, инфо этажа, иконки этажа - исправить колонки
-
-
--->
 
 <main class="main">
 
@@ -132,7 +105,9 @@ svg -
                     <p> 1 ноября 2022 года
                     </p>
 
-                    <a href="" class="link-pdf"><div class="icon"><img src="img/icons/pdf.svg" alt=""></div>Презентация торгового комплекса</a>
+                    <a href="" class="link-pdf">
+                        <div class="icon"><img src="img/icons/pdf.svg" alt=""></div>Презентация торгового комплекса
+                    </a>
 
                 </div>
                 <div class="oproekte__slider col-lg-6">
@@ -146,7 +121,14 @@ svg -
     <div class="swiper-slide-inner">
 
 
-        <div class="slider__img-block"><img src="img/slider/1.jpg" alt="" class="img-fluid"></div>
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/1.jpg" 
+                data-srcset="img/slider/1.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
 
         <div class="slider__text-block">
 
@@ -165,7 +147,14 @@ svg -
     <div class="swiper-slide-inner">
 
 
-        <div class="slider__img-block"><img src="img/slider/1.jpg" alt="" class="img-fluid"></div>
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/2.jpg" 
+                data-srcset="img/slider/2.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
 
         <div class="slider__text-block">
 
@@ -184,7 +173,89 @@ svg -
     <div class="swiper-slide-inner">
 
 
-        <div class="slider__img-block"><img src="img/slider/1.jpg" alt="" class="img-fluid"></div>
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/3.jpg" 
+                data-srcset="img/slider/3.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
+
+        <div class="slider__text-block">
+
+
+            <div class="h3">
+                Торговый
+                <a href="#">www.tk-imperator.kz</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+        <div class="swiper-slide">
+    <div class="swiper-slide-inner">
+
+
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/4.jpg" 
+                data-srcset="img/slider/4.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
+
+        <div class="slider__text-block">
+
+
+            <div class="h3">
+                Торговый
+                <a href="#">www.tk-imperator.kz</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+        <div class="swiper-slide">
+    <div class="swiper-slide-inner">
+
+
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/5.jpg" 
+                data-srcset="img/slider/5.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
+
+        <div class="slider__text-block">
+
+
+            <div class="h3">
+                Торговый
+                <a href="#">www.tk-imperator.kz</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+        <div class="swiper-slide">
+    <div class="swiper-slide-inner">
+
+
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/6.jpg" 
+                data-srcset="img/slider/6.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
 
         <div class="slider__text-block">
 
@@ -273,7 +344,23 @@ svg -
             </div>
 
             <div class="infrastruktura__img text-center">
-                <img src="img/infrastruktura.svg" alt="" class="img-fluid lightense">
+                
+
+                <div class="swiper swiper-zoom">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="swiper-zoom-container">
+                                <img data-src="img/infrastruktura.svg" 
+                                data-srcset="img/infrastruktura.svg" 
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+                                class="swiper-lazy img-fluid" alt="">
+                                <div class="swiper-lazy-preloader"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             <ul class="infrastruktura__features list-unstyled columns-3">
@@ -317,7 +404,21 @@ svg -
 
 
             <div class="geography__img">
-                <img src="img/geography.svg" alt="6866" class="img-fluid lightense">
+
+                <div class="swiper swiper-zoom">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="swiper-zoom-container">
+                                <img data-src="img/geography.svg" 
+                                data-srcset="img/geography.svg" 
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+                                class="swiper-lazy img-fluid" alt="">
+                                <div class="swiper-lazy-preloader"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -361,7 +462,13 @@ svg -
             </div>
 
             <div class="arenda__map">
-                <svg width="1199" height="675" viewBox="0 0 1199 675" fill="none" xmlns="http://www.w3.org/2000/svg" id="svg_arenda">
+
+                <div class="swiper swiper-zoom-svg">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="swiper-zoom-container">
+
+                                <svg width="1199" height="675" viewBox="0 0 1199 675" fill="none" xmlns="http://www.w3.org/2000/svg" id="svg_arenda">
 <g id="Group">
 <path id="Vector" d="M541.469 184.534H445.073V214.005H541.469V184.534Z" stroke="#1A1A18" stroke-width="0.5" stroke-miterlimit="22.93"/>
 <path id="korpus_2" fill-rule="evenodd" clip-rule="evenodd" d="M1198.39 559.219H1133.64V671.707H1081.89V559.219H182.361V671.707H143.256V559.219H0.386719V506.623H87.6075L0.386719 442.057V397.759L142.297 503.318L143.256 346.605L254.243 216.917H472.272L471.751 221.518H324.344H277.643L268.467 233.597L273.991 238.272L266.011 247.967L260.278 243.393L182.361 338.042V506.623H1081.89V2.67347L1133.64 0.537109V506.623H1198.39V559.219Z" fill="#3E4046"/>
@@ -1715,6 +1822,12 @@ svg -
 
 </svg>
 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
 
@@ -1758,13 +1871,13 @@ svg -
 
 
             <div class="arenda__form">
-                <form action="" class="form">
+                <form action="" class="form needs-validation">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-row">
                                 <label for="">Название компании</label>
                                 <div class="form-field">
-                                    <input type="text">
+                                    <input type="text" required>
                                 </div>
                             </div>
                         </div>
@@ -1823,7 +1936,7 @@ svg -
                             <div class="form-row">
                                 <label for="">Контактный телефон</label>
                                 <div class="form-field">
-                                    <input type="text" placeholder="+7 (___) ___-__-__">
+                                    <input type="tel" data-mask="+7 (___) ___-__-__" placeholder="+7 (___) ___-__-__">
                                 </div>
                             </div>
                         </div>
@@ -1893,7 +2006,14 @@ svg -
     <div class="swiper-slide-inner">
 
 
-        <div class="slider__img-block"><img src="img/slider/1.jpg" alt="" class="img-fluid"></div>
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/1.jpg" 
+                data-srcset="img/slider/1.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
 
         <div class="slider__text-block">
 
@@ -1912,7 +2032,14 @@ svg -
     <div class="swiper-slide-inner">
 
 
-        <div class="slider__img-block"><img src="img/slider/1.jpg" alt="" class="img-fluid"></div>
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/2.jpg" 
+                data-srcset="img/slider/2.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
 
         <div class="slider__text-block">
 
@@ -1931,7 +2058,89 @@ svg -
     <div class="swiper-slide-inner">
 
 
-        <div class="slider__img-block"><img src="img/slider/1.jpg" alt="" class="img-fluid"></div>
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/3.jpg" 
+                data-srcset="img/slider/3.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
+
+        <div class="slider__text-block">
+
+
+            <div class="h3">
+                Торговый
+                <a href="#">www.tk-imperator.kz</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+        <div class="swiper-slide">
+    <div class="swiper-slide-inner">
+
+
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/4.jpg" 
+                data-srcset="img/slider/4.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
+
+        <div class="slider__text-block">
+
+
+            <div class="h3">
+                Торговый
+                <a href="#">www.tk-imperator.kz</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+        <div class="swiper-slide">
+    <div class="swiper-slide-inner">
+
+
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/5.jpg" 
+                data-srcset="img/slider/5.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
+
+        <div class="slider__text-block">
+
+
+            <div class="h3">
+                Торговый
+                <a href="#">www.tk-imperator.kz</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+        <div class="swiper-slide">
+    <div class="swiper-slide-inner">
+
+
+        <div class="slider__img-block">
+
+            <img data-src="img/slider/6.jpg" 
+                data-srcset="img/slider/6.jpg 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
 
         <div class="slider__text-block">
 
@@ -1964,6 +2173,10 @@ svg -
                         <div class="h2">Узнавайте первыми
                             о новостях торгового центра</div>
                         <p>Оставьте свою электронную почту и мы вам что-то сообщим</p>
+                        <p id="asd_subscribe_res" class="subscribe__form-message success">
+                            Указан неверный адрес подписки.</p>
+
+
                         <div class="form-row">
                             <div class="form-field">
                                 <input type="text" placeholder="Ваш e-mail">
@@ -2138,9 +2351,13 @@ svg -
     </div>
 
     <div class="etazh__img">
-        <!--img src="img/map/korpus1/etazh1.svg" alt="" class="img-fluid"-->
 
-        <svg width="3246" height="756" viewBox="0 0 3246 756" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="swiper swiper-zoom-svg">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-zoom-container">
+
+                        <svg width="3246" height="756" viewBox="0 0 3246 756" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Group">
 <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M437.519 294.476H600.301V485.693C754.43 485.693 908.532 485.773 1062.66 485.773V297.088H1229.35V290.572H1672.16L1671.18 294.476L2322.71 293.184L2322.94 485.878C2426.05 485.878 2528.94 485.799 2632.05 485.799V293.184L3094.67 289.279V36.9082H2826.12V213.721L2628.75 215.04L2629.46 36.9082H2479.63V215.04H1845.36L1845.44 36.8555H1708.59L1708.46 215.04C933.411 215.04 1076.72 214.855 335.786 215.726V287.986L437.571 288.962V294.476H437.519Z" fill="#D8D9D9"/>
 <path id="korpus1_etazh1_room2" d="M2415.68 329.644H2319.04V485.852H2415.68V329.644Z" fill="#D8D9D9"/>
@@ -2651,6 +2868,12 @@ svg -
 </svg>
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
     </div>
 
     <div class="etazh__symbols">
@@ -3004,9 +3227,13 @@ svg -
     </div>
 
     <div class="etazh__img">
-        <!--img src="img/map/korpus1/etazh2.svg" alt="" class="img-fluid"-->
 
-        <svg width="3355" height="1974" viewBox="0 0 3355 1974" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="swiper swiper-zoom-svg">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-zoom-container">
+
+                        <svg width="3355" height="1974" viewBox="0 0 3355 1974" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Group">
 <path id="Vector" d="M3354.01 0.716797H1.23425V1972.94H3354.01V0.716797Z" fill="#474A51"/>
 <path id="korpus1_etazh2_room2" d="M3354.01 0.716797H1.23425V1972.94H3354.01V0.716797Z" stroke="#354650" stroke-width="0.57" stroke-miterlimit="22.93"/>
@@ -4336,6 +4563,12 @@ svg -
 </svg>
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
     </div>
 
     <div class="etazh__symbols">
@@ -4689,9 +4922,13 @@ svg -
     </div>
 
     <div class="etazh__img">
-        <!--img src="img/map/korpus1/etazh3.svg" alt="" class="img-fluid"-->
 
-        <svg width="3355" height="1826" viewBox="0 0 3355 1826" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="swiper swiper-zoom-svg">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-zoom-container">
+
+                        <svg width="3355" height="1826" viewBox="0 0 3355 1826" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3354.01 0.730469H1.2312V1825.67H3354.01V0.730469Z" fill="#474A51"/>
 <path d="M3354.01 0.730469H1.2312V1825.67H3354.01V0.730469Z" stroke="#263640" stroke-width="0.57" stroke-miterlimit="22.93"/>
 <path d="M2509.9 1393.72H2424.23V1445.55H2509.9V1393.72Z" fill="#A59BCC"/>
@@ -6084,6 +6321,12 @@ svg -
 </svg>
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
     </div>
 
     <div class="etazh__symbols">
@@ -6495,9 +6738,13 @@ svg -
     </div>
 
     <div class="etazh__img">
-        <!--img src="img/map/korpus2/etazh1.svg" alt="" class="img-fluid"-->
 
-        <svg width="3402" height="1868" viewBox="0 0 3402 1868" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="swiper swiper-zoom-svg">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-zoom-container">
+
+                        <svg width="3402" height="1868" viewBox="0 0 3402 1868" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3401.45 0.644531H0.718018V1867H3401.45V0.644531Z" fill="#474A51"/>
 <path d="M3401.45 0.644531H0.718018V1867H3401.45V0.644531Z" stroke="#263640" stroke-width="0.57" stroke-miterlimit="22.93"/>
 <path d="M2689.2 1288.79C2693.78 1288.79 2697.21 1292.35 2697.21 1297.71C2697.21 1303.07 2693.67 1306.7 2689.2 1306.7C2684.73 1306.7 2681.22 1303.22 2681.22 1297.71C2681.22 1292.2 2684.78 1288.79 2689.2 1288.79ZM2689.23 1285.67C2682.62 1285.67 2677.66 1290.59 2677.66 1297.74C2677.66 1304.88 2682.44 1309.8 2689.23 1309.8C2696.01 1309.8 2700.77 1304.78 2700.77 1297.74C2700.77 1290.69 2696.09 1285.67 2689.23 1285.67ZM2669.71 1288.95V1306.47H2666.99V1309.34H2675.71V1306.47H2672.99V1288.95H2675.71V1286.08H2655.8V1288.95H2658.52V1296.74C2658.52 1304.68 2657 1306.76 2655.14 1306.76C2654.41 1306.76 2653.72 1306.63 2653.26 1306.45V1309.52C2653.75 1309.73 2654.53 1309.8 2655.3 1309.8C2659.24 1309.8 2661.42 1306.32 2661.42 1297.2V1288.92H2669.68L2669.71 1288.95ZM2640.25 1288.79C2644.82 1288.79 2648.26 1292.35 2648.26 1297.71C2648.26 1303.07 2644.72 1306.7 2640.25 1306.7C2635.78 1306.7 2632.27 1303.22 2632.27 1297.71C2632.27 1292.2 2635.83 1288.79 2640.25 1288.79ZM2640.28 1285.67C2633.64 1285.67 2628.71 1290.59 2628.71 1297.74C2628.71 1304.88 2633.49 1309.8 2640.28 1309.8C2647.06 1309.8 2651.81 1304.78 2651.81 1297.74C2651.81 1290.69 2647.14 1285.67 2640.28 1285.67ZM2598.19 1286.1V1288.97H2600.91V1306.5H2598.19V1309.37H2606.52V1306.5H2603.8V1288.87L2611.84 1309.34H2612.52L2620.76 1288.89V1306.47H2618.04V1309.34H2626.75V1306.47H2624.03V1288.95H2626.75V1286.08H2619.1L2612.57 1302.58L2606.22 1286.08H2598.19V1286.1Z" fill="white"/>
@@ -7505,6 +7752,12 @@ svg -
 </svg>
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
     </div>
 
     <div class="etazh__symbols">
@@ -7920,9 +8173,13 @@ svg -
     </div>
 
     <div class="etazh__img">
-        <!--img src="img/map/korpus3/etazh1.svg" alt="" class="img-fluid"-->
 
-        <svg width="3380" height="1841" viewBox="0 0 3380 1841" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="swiper swiper-zoom-svg">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-zoom-container">
+
+                        <svg width="3380" height="1841" viewBox="0 0 3380 1841" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3379.7 1.01172H0.498413V1840.39H3379.7V1.01172Z" fill="#474A51"/>
 <path d="M3379.7 1.01172H0.498413V1840.39H3379.7V1.01172Z" stroke="#263640" stroke-width="0.57" stroke-miterlimit="22.93"/>
 <path d="M1675.92 651.986H261.227V1623.46H1675.92V651.986Z" fill="#D8D9D9"/>
@@ -8670,6 +8927,12 @@ svg -
 </svg>
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
     </div>
 
     <div class="etazh__symbols">
@@ -9023,9 +9286,13 @@ svg -
     </div>
 
     <div class="etazh__img">
-        <!--img src="img/map/korpus3/etazh2.svg" alt="" class="img-fluid"-->
 
-        <svg width="3380" height="1841" viewBox="0 0 3380 1841" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="swiper swiper-zoom-svg">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-zoom-container">
+
+                        <svg width="3380" height="1841" viewBox="0 0 3380 1841" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3379.68 0.996094H0.492554V1840.38H3379.68V0.996094Z" fill="#474A51"/>
 <path d="M3379.68 0.996094H0.492554V1840.38H3379.68V0.996094Z" stroke="#263640" stroke-width="0.57" stroke-miterlimit="22.93"/>
 <path d="M1700.29 1189.64H175.901V1591.67H1700.29V1189.64Z" fill="#D8D9D9"/>
@@ -9397,6 +9664,12 @@ svg -
 <path fill-rule="evenodd" clip-rule="evenodd" d="M2201.15 1277.68L2205.42 1275.85L2209.72 1274.04V1277.68V1281.28L2205.42 1279.48L2201.15 1277.68Z" fill="#1A1A18"/>
 </svg>
 
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
     </div>
 
@@ -9841,3 +10114,25 @@ svg -
 </body>
 
 </html>
+
+
+<!--TODO:  
+Форма:
+
+    Рекапча
+    Отправка аяксом
+    Ошибки
+    Маска телефона+-
+    слайдер лейзи лоад
+
+
+
+svg - 
+1) экспортировать из фигрмы с id
+2) svg редактировать в notepad++ > переименовать все id на уникальный (например для корпус 1, этаж 1 > найти и заменить > заменить `id="Vector` на `id="korpus1_etazh1_room` )
+3) загрузить svg в "Этаж", зайти на сайт.
+3) найти загруженую картинку > ПКМ по нужному помещению > просмотреть код > скопировать ИД > вставить в св-во "ID соответствующего контура на svg плане" 
+
+
+
+-->

@@ -1,3 +1,160 @@
+a {
+	color: $yellow;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+		//color:shade-color($yellow, 30%);
+		//transition: color 2s;
+	}
+
+	&.white {
+		color: $white;
+
+		&:hover {
+			//color:$yellow;
+		}
+	}
+
+	&.underline {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&.underline-hover {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&.decoration-none {
+		text-decoration: none !important;
+	}
+}
+
+.btn {
+	font-family: $Rodeo;
+	font-weight: normal;
+	font-size: 16px;
+	border: 0;
+	color: $bg;
+	text-align: center;
+	text-decoration: none !important;
+	vertical-align: middle;
+	white-space: nowrap;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	background: linear-gradient(354.25deg, #FE5B05 -13.55%, #FEBD5A 91.25%);
+	box-shadow: 0px 4px 14px #2A2E36, inset 0px -1px 0px #FFBA57;
+	text-shadow: 0px 1px 0px #FFB856;
+	border-radius: 60px;
+
+	//-webkit-user-select: none;
+	//-moz-user-select: none;
+	//user-select: none;
+	padding: 0 36px;
+	height: 42px;
+	transition: color .20s ease-in-out, background-color .20s ease-in-out, border-color .20s ease-in-out; //www
+
+	@include media-breakpoint-down(xl) {}
+
+	&:hover {
+		cursor: pointer;
+		background-color: $yellow;
+		background: linear-gradient(1.58deg, #FEBD5A -21%, #FE5B05 136.27%);
+		box-shadow: 0px 4px 14px #2A2E36, inset 0px 1px 0px #FFBA57;
+	}
+
+	&.no-btn:hover {
+		cursor: text;
+		background-color: $white;
+	}
+
+	&.no-border {
+		border: none;
+	}
+
+	&.no-bg {
+		background: none;
+		box-shadow: none;
+		padding: 0;
+	}
+
+	&.btn-simple {
+		background: none;
+		box-shadow: none;
+		border: 1px solid $gray4;
+		background-color: $bg;
+		padding: 0;
+		&:hover {
+			background-color: $gray3!important;
+		}
+	}
+
+	&:focus {
+		outline: 0;
+		box-shadow: none;
+	}
+
+	&.btn__yellow {
+		background-color: $yellow;
+
+		&:hover {
+			background-color: $white;
+		}
+
+		&.no-btn:hover {
+			background-color: $yellow;
+		}
+	}
+
+	&.btn__dark {
+		background-color: $dark;
+		border-color: $dark;
+		color: $white;
+
+		&:hover {
+			background-color: $white;
+			color: $black;
+		}
+
+		&.no-btn:hover {
+			background-color: $dark;
+			color: $white;
+		}
+	}
+
+	&-circle-56 {
+		width: 46px;
+		height: 46px;
+
+		img {
+			width: 12px;
+		}
+
+		@include media-breakpoint-up(sm) {
+			width: 56px;
+			height: 56px;
+
+			img {
+				width: 15px;
+			}
+
+		}
+	}
+
+	.icon {
+		position: relative;
+	}
+}
+
 
 h1,
 h2,
@@ -102,9 +259,13 @@ h4 {
 	font-family: $Rodeo;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 18px;
-	line-height: 21px;
+	font-size: 16px;
+	line-height: 20px;
 	margin-bottom: 1rem;
+	@include media-breakpoint-up(md) {
+		font-size: 18px;
+		line-height: 21px;
+	}
 }
 
 .h5,

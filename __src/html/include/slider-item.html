@@ -2,7 +2,14 @@
     <div class="swiper-slide-inner">
 
 
-        <div class="slider__img-block"><img src="@img/slider/@@img" alt="" class="img-fluid"></div>
+        <div class="slider__img-block">
+
+            <img data-src="@img/slider/@@img" 
+                data-srcset="@img/slider/@@img 2x" 
+                class="swiper-lazy img-fluid" alt="">
+            <div class="swiper-lazy-preloader"></div>
+
+        </div>
 
         <div class="slider__text-block">
 
